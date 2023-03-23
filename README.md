@@ -14,7 +14,7 @@ The 4 AI code assistants chosen are:
 >- You.com->Code 
 
 The IDE selected is:
->-Oxygen Editor 
+>- Oxygen Editor 
 
 Basic testing plan:
 >- Multiple scripts to be developed
