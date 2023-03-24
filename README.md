@@ -7,7 +7,7 @@ My project endeavors to test 4 different AI code assistants against XML/XSLT cod
 
 ### **Methodology**
 
-The 4 AI code assistants chosen are:
+#The 4 AI code assistants chosen are:
 >
 >- ChatGPT
 >
@@ -21,7 +21,7 @@ The IDE selected is:
 >
 >- Oxygen Editor 
 >
-Basic testing plan:
+#Basic testing plan:
 >- Multiple scripts to be developed
 >
 >- Scripts to be submitted to the chosen AI assistants
@@ -31,7 +31,7 @@ Basic testing plan:
 >- Transforms to be executed 
 >
 >- Any developer intervention required to get to PDF to be documented
->
+
 ### **Results**
 
 Results will be measured against the following criteria:
