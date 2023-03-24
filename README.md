@@ -1,13 +1,13 @@
 # **SR-XSLT-AI**
 ## **CSC450 - Senior Research Project**
 
-### **Purpose**
+## **Purpose**
 
 My project endeavors to test 4 different AI code assistants against XML/XSLT code generation. It will test their ability to accurately translate sample text with brief schema information into a valid XML, and it will test their ability to provide usable XLST code to transform that XML into a PDF. The purpose for this research is to see if AI assistants are a viable tool in assisting XML and XSLT development.
 
-### **Methodology**
+## **Methodology**
 
-# The 4 AI code assistants chosen are:
+### The 4 AI code assistants chosen are:
 >
 >- ChatGPT
 >
@@ -21,7 +21,7 @@ My project endeavors to test 4 different AI code assistants against XML/XSLT cod
 >
 >- Oxygen Editor 
 >
-# Basic testing plan:
+### Basic testing plan:
 >- Multiple scripts to be developed
 >
 >- Scripts to be submitted to the chosen AI assistants
@@ -32,9 +32,9 @@ My project endeavors to test 4 different AI code assistants against XML/XSLT cod
 >
 >- Any developer intervention required to get to PDF to be documented
 
-### **Results**
+## **Results**
 
-# Results will be measured against the following criteria:
+### Results will be measured against the following criteria:
 >
 >- Is the generated XML document well-formed?
 >
