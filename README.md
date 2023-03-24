@@ -7,28 +7,44 @@ My project endeavors to test 4 different AI code assistants against XML/XSLT cod
 
 ### **Methodology**
 
-The 4 AI code assistants chosen are:  
+The 4 AI code assistants chosen are:
+>
 >- ChatGPT
+>
 >- Github Copilot
+>
 >- Notion AI
->- You.com->Code 
-
+>
+>- You.com->Code
+> 
 The IDE selected is:
+>
 >- Oxygen Editor 
-
+>
 Basic testing plan:
 >- Multiple scripts to be developed
+>
 >- Scripts to be submitted to the chosen AI assistants
+>
 >- AI responses to be copied and pasted into Oxygen Editor xml and xsl templates
+>
 >- Transforms to be executed 
+>
 >- Any developer intervention required to get to PDF to be documented
-
+>
 ### **Results**
 
 Results will be measured against the following criteria:
+>
 >- Is the generated XML document well-formed?
+>
 >- Is it schema compliant?
+>
 >- Does it contain accurate content, with no duplication or droppage?
+>
 >- Is the transformation successful without developer intervention?
+>
 >- If not, how much developer intervention was required to get to PDF?
+>
 >- Is the resulting PDF compliant with the specifications requested?
+>
