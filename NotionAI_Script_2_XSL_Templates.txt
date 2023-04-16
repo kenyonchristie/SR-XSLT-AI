@@ -1,0 +1,120 @@
+<!--Research initially was told AI couldn't do stylesheet but selection of "Continue Writing" resulted in below output-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="<http://www.w3.org/1999/XSL/Transform>" xmlns:fo="<http://www.w3.org/1999/XSL/Format>" version="1.0">
+
+  <!-- Include Script_2_attributes.xsl -->
+  <xsl:include href="Script_2_attributes.xsl"/>
+
+  <!-- Define header and footer extents -->
+  <xsl:variable name="headerExtent" select="0.25in"/>
+  <xsl:variable name="footerExtent" select="0.25in"/>
+
+  <!-- Define templates for various elements -->
+  <xsl:template match="/">
+    <fo:root>
+      <fo:layout-master-set>
+        <!-- Define simple-page-master with header and footer extents -->
+        <fo:simple-page-master master-name="page" page-height="11in" page-width="8.5in" margin-top="{$headerExtent}" margin-bottom="{$footerExtent}" margin-left="0.5in" margin-right="0.5in">
+          <xsl:call-template name="page-geometry"/>
+          <fo:region-body margin-top="0.25in" margin-bottom="0.25in" margin-left="0.5in" margin-right="0.5in"/>
+          <fo:region-before extent="{$headerExtent}"/>
+          <fo:region-after extent="{$footerExtent}"/>
+        </fo:simple-page-master>
+      </fo:layout-master-set>
+
+      <xsl:apply-templates select="content"/>
+    </fo:root>
+  </xsl:template>
+
+  <xsl:template match="description">
+    <xsl:apply-templates/>
+  </xsl:template>
+
+  <xsl:template match="levelledPara">
+    <fo:block id="{@id}">
+      <xsl:choose>
+        <xsl:when test="ancestor::levelledPara">
+          <xsl:apply-templates select="title" mode="title-2"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="title" mode="title-1"/>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="para"/>
+      <xsl:apply-templates select="table"/>
+    </fo:block>
+  </xsl:template>
+
+  <xsl:template match="title" mode="title-1">
+    <fo:block xsl:use-attribute-sets="title-1">
+      <xsl:value-of select="."/>
+    </fo:block>
+  </xsl:template>
+
+  <xsl:template match="title" mode="title-2">
+    <fo:block xsl:use-attribute-sets="title-2">
+      <xsl:value-of select="."/>
+    </fo:block>
+  </xsl:template>
+
+  <xsl:template match="caption">
+    <fo:block xsl:use-attribute-sets="caption">
+      <xsl:apply-templates/>
+    </fo:block>
+  </xsl:template>
+
+  <xsl:template match="para">
+    <fo:block xsl:use-attribute-sets="para">
+      <xsl:apply-templates/>
+    </fo:block>
+  </xsl:template>
+
+  <xsl:template match="emphasis">
+    <fo:inline>
+      <xsl:choose>
+        <xsl:when test="@emphasisType='em01'">
+          <fo:inline font-style="italic">
+            <xsl:apply-templates/>
+          </fo:inline>
+        </xsl:when>
+        <xsl:when test="@emphasisType='em02'">
+          <fo:inline color="blue">
+            <xsl:apply-templates/>
+          </fo:inline>
+        </xsl:when>
+        <xsl:otherwise>
+          <fo:inline xsl:use-attribute-sets="emphasis"/>
+          <xsl:apply-templates/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </fo:inline>
+  </xsl:template>
+
+  <xsl:template match="listItem[@listItemPrefix='pf07']">
+    <fo:list-block xsl:use-attribute-sets="listItem" margin-bottom="6pt" provisional-distance-between-starts="5mm" provisional-label-separation="3mm" provisional-label-width="5mm">
+      <xsl:apply-templates/>
+    </fo:list-block>
+  </xsl:template>
+
+  <xsl:template match="table">
+    <fo:block keep-together.within-page="always" space-before="0.5pc">
+      <xsl:apply-templates/>
+    </fo:block>
+  </xsl:template>
+
+  <!-- Wraps template output in fo:block tags -->
+  <xsl:template match="*[not(self::description or self::emphasis or self::table or self::row or self::entry or self::randomList or self::listItem)]">
+    <fo:block>
+      <xsl:apply-templates/>
+    </fo:block>
+  </xsl:template>
+
+  <!-- Wraps template output in fo:inline tags -->
+  <xsl:template match="emphasis">
+    <fo:inline>
+      <xsl:apply-templates/>
+    </fo:inline>
+  </xsl:template>
+
+</xsl:stylesheet>
