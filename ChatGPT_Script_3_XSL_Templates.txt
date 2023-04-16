@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:fo="http://www.w3.org/1999/XSL/Format"
+    version="1.0">
+
+  <!-- Include for xsl stylesheet "Script_3_attributes.xsl" -->
+  <xsl:include href="Script_3_attributes.xsl"/>
+
+  <!-- Template for content -->
+  <xsl:template match="content">
+    <fo:root>
+      <fo:layout-master-set>
+        <fo:simple-page-master master-name="content-page"
+            page-height="{@page-size}"
+            page-width="{@page-geometry}">
+          <fo:region-body margin-top="0.25in" margin-bottom="0.25in"/>
+          <fo:region-before extent="0.25in"/>
+          <fo:region-after extent="0.25in"/>
+        </fo:simple-page-master>
+      </fo:layout-master-set>
+      <fo:page-sequence master-reference="content-page">
+        <fo:flow flow-name="xsl-region-body">
+          <xsl:apply-templates/>
+        </fo:flow>
+      </fo:page-sequence>
+    </fo:root>
+  </xsl:template>
+
+  <!-- Template for description -->
+  <xsl:template match="description">
+    <xsl:apply-templates/>
+  </xsl:template>
+
+  <!-- Template for levelledPara -->
+  <xsl:template match="levelledPara">
+    <fo:block id="{generate-id()}">
+      <xsl:apply-templates/>
+    </fo:block>
+  </xsl:template>
+
+  <!-- Template for title -->
+  <xsl:template match="title">
+    <fo:block xsl:use-attribute-sets="title">
+      <xsl:value-of select="."/>
+    </fo:block>
+  </xsl:template>
+
+  <!-- Template for para -->
+  <xsl:template match="para">
+    <fo:block xsl:use-attribute-sets="para" space-after="{if (sequentialList) then '1pc' else ''}">
+      <xsl:value-of select="."/>
+      <xsl:apply-templates select="sequentialList"/>
+    </fo:block>
+  </xsl:template>
+
+  <!-- Template for sequentialList -->
+  <xsl:template match="sequentialList">
+    <fo:block space-before="1pc">
+      <xsl:apply-templates/>
+    </fo:block>
+  </xsl:template>
+
+  <!-- Template for listItem -->
+  <xsl:template match="listItem">
+    <fo:list-block provisional-distance-between-starts="10mm"
+        provisional-label-separation="5mm"
+        space-after="6pt"
+        start-indent="1"
+        style="border: 1pt solid black; background-color: #C5C5C5; padding-right: 0.15in;">
+      <fo:list-item>
+        <fo:list-item-label end-indent="label-end()">
+          <fo:block>
+            <xsl:number level="any" count="listItem"/>
+          </fo:block>
+        </fo:list-item-label>
+        <fo:list-item-body start-indent="body-start()">
+          <xsl:apply-templates/>
+        </fo:list-item-body>
+      </fo:list-item>
+    </fo:list-block>
+  </xsl:template>
+</xsl:stylesheet>

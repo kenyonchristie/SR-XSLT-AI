@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="content">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="levelledPara"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="levelledPara">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="levelledPara"/>
+        <xs:element ref="para"/>
+        <xs:element ref="title"/>
+      </xs:choice>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="para">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="emphasis"/>
+        <xs:element ref="randomList"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="emphasis">
+    <xs:complexType mixed="true">
+      <xs:attribute name="emphasisType" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="randomList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="listItem"/>
+      </xs:sequence>
+      <xs:attribute name="listItemPrefix" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="para"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+Create an XSL stylesheet for the templates and page-sequence of the above XML document, with the following additional conditions:
+
+1) include for xsl stylesheet "Script_1_attributes.xsl"
+2) header and footer extents are 0.5in
+3) region-body margin-top and margin-bottom are 0.5in
+4) all templates except description, emphasis, and randomList/listItem wrap template output in fo:block tags
+5) emphasis template wraps template output in fo:inline tags
+6) emphasis has the following attributes on fo:block: bolded font, Century Gothic, a space before of 0.5pc>
+7) for emphasis with emphasisType "em01" the font color is blue
+8) listItem template will be for listItemPrefix="pf07" and will be an fo:list-block with margin-bottom of 6pt, label indent of 5mm, body indent of 10mm, and bullets for the label
+9) para element use attribute-set "para"
+10) titles with one levelledPara ancestor use attribute-set "title-1"
+11) titles with two levelledPara ancestors use attribute-set "title-2"
+12) titles with three levelledPara ancestors use attribute-set "title-3"
+13) simple page master uses attribute sets page-size and page-geometry
+
+
+
+
+
+
+	
+

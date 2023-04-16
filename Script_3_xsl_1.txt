@@ -1,0 +1,25 @@
+Create an XSL stylesheet that contains the following attribute sets:
+
+page-size 
+page-geometry
+title
+para
+
+The attribute sets contain attributes to accomplish the following:
+page-size:  8.5in x 11in
+page-geometry: 1in top and bottom margins, 0.75in right and left margins
+
+font-family values are Century Gothic for para and Arial for title
+font-weight is bold for title
+font-size is 14pt for para, 18pt for title
+space-before is 1pc for para
+space-after is 1.5pc for title
+text-align is justify for para, center for title
+title has keep-with-next value of always
+title has gray top and bottom borders that are 1pt solid with navy background color and white font
+
+
+
+
+	
+

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="content">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="levelledPara"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="levelledPara">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element maxOccurs="unbounded" ref="para"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="para">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="sequentialList"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sequentialList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="listItem"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="para"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
+Create an XSL stylesheet for the templates and page-sequence of the above XML document, with the following additional conditions:
+
+
+1) include for xsl stylesheet "Script_3_attributes.xsl"
+2) header and footer extents are 0.25in
+3) all templates except description and listItem wrap template output in fo:block tags
+4) listItem template will be an fo:list-block with margin-bottom of 6pt, label indent of 5mm, body indent of 10mm, and numbered labels that start with 1 and are sequential within a sequentialList block but restart numbering for each sequentialList parent
+5) listItem template has 1pt solid black border with background color #C5C5C5 and .15in right padding
+6) para element use attribute-set "para" and has space-after of 1pc whenever it has a sequentialList child
+7) title uses attribute-set "title"
+8) sequentialList blocks have a space-before of 1pc
+9) simple page master uses attribute sets page-size and page-geometry
+10) levelledPara should generate a unique-id
+
+
+
+
+
+
+
+	
+

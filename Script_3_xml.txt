@@ -1,0 +1,46 @@
+Rules:
+
+1. The root element is content
+2. The second level element wrapping all of below data is description
+2. Items starting with > are titles and the > character is not included in the xml output
+3. Every title block is wrapped in a levelledPara element with a unique id attribute that begins with 'lp-' and ends with sequential numbering starting with 0001
+4. Every paragraph indented under a title is a para element that is a child of the same levelledPara as its corresponding title
+5. Items beginning with * are randomList elements with listItemPrefix attribute value of "pf07" and the * character is not included in the xml output
+6. Items enclosed with + are emphasis elements with emphasisType attribute value of "em01" and the + character is not included in the xml output
+7. Items enclosed with ^ are emphasis elements with emphasisType attribute value of "em02" and the ^ character is not included in the xml output
+8. Data enclosed in [] is a two-column cals-table with no borders, and each block enclosed in {} represents a column. Column one is 2.5in wide and column two is 3.5in wide. Neighter [] nor {} characters are included in the xml output
+9. Table elements have a unique id attribute that begins with 'tbl-' and ends with sequential numbering starting with 0001
+10. Items preceded by # are sequentialList elements and the # character is not included in the xml output
+
+Using the above rules, please convert the following text to valid XML data:
+
+	>DAWN SCIENCE OBJECTIVES
+	
+	To achieve the overall goal of the Dawn mission, a set of science objectives has been established
+that can be met by the instrument suite. These objectives are listed below.
+
+	The objectives primarily answered by the framing cameras are:
+	#To determine the origin and evolution of Vesta and Ceres by mapping the extent of geologic processes on the asteroid surfaces, and by using the cratering record to establish a relative chronology of the crustal units and population of impactors in the early solar system
+	#To map the shape, determine the spin state, and establish the degree of cratering of the asteroids visited
+	#To map the topography of Vesta and Ceres
+	#To search for dust and satellites in the environment of the asteroids visited
+
+	The framing cameras will also contribute to answering some of the broader objectives:
+	#To provide a geologic, compositional, and geophysical context for the Howardite-EucriteDiogenite (HED) meteorites.
+	#To provide an opportunity to identify Ceres-derived meteorites in their geologic context.
+	
+	The visible and infrared spectrometer scientific objectives are:
+	#To provide a geologic, compositional, and geophysical context for HED meteorites
+	#To provide an opportunity to identify Ceres-derived meteorites in their geologic context
+	#To map the thermophysical properties of Vesta and Ceres
+	#To determine the origin and evolution of Vesta and Ceres by mapping the mineralogical composition and its spatial variation across the asteroidal surface
+
+	The gamma ray and neutron spectrometer scientific objectives are:
+	#To map the major elemental composition of O, Si, Fe, Mg, Ti, Al, Ca, and H on Vesta and Ceres
+	#To map the trace elements U, Th, K, Gd, and Sm on Vesta and Ceres
+	#To provide a geologic, compositional, and geophysical context for the HED meteorites
+
+	The gravity science scientific objectives are:
+	#To determine the masses of the asteroids visited
+	#To measure the bulk density of Vesta and Ceres, in conjunction with topography, and determine heterogeneity
+	#To determine the gravitational fields of Vesta and Ceres

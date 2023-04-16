@@ -1,0 +1,34 @@
+Create an XSL stylesheet that contains the following attribute sets:
+
+page-size 
+page-geometry
+title-1
+title-2
+para
+box
+graphic
+caption
+
+The attribute sets contain attributes to accomplish the following:
+page-size:  8.5in x 11in
+page-geometry: 0.75in for top margin and 0.5in for the rest of the margins
+
+
+font-family values are Helvetica for titles, Arial for caption, and Times New Roman for para
+font-weight is bold for titles and caption
+font-size is 12pt for para, 8pt for caption, 16pt for title-2, and 18pt for title-1
+space-before is 1pc for para, 0.25pc for caption, and 1.5pc for title-2
+space-after is 1.5pc for title-1
+text-align is justify for para, center for title-1 and box and graphic and caption, and left for title-2
+all titles have keep-with-next value of always
+title-1 has a bottom border that is solid 1pt black
+box has padding before and after of 0.25in
+graphic has width of 6.5in, height of 3.5in and alignment adjustment of central
+
+
+
+
+
+
+	
+
