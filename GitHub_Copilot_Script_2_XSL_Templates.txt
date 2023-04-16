@@ -1,0 +1,248 @@
+<!--Github copilto could not work with this particular schema, it seems-->
+
+<?xml version="1.0" encoding="utf-8"?>
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="content">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="levelledPara"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="levelledPara">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="levelledPara"/>
+          <xs:element ref="caption"/>
+          <xs:element ref="figure"/>
+          <xs:element ref="title"/>
+        </xs:choice>
+        <xs:choice>
+          <xs:element ref="table"/>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="para"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="caption">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="captionLine"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="captionLine" type="xs:string"/>
+  <xs:element name="figure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="graphic"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="graphic">
+    <xs:complexType>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="infoEntityIdent" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="table">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tgroup"/>
+      </xs:sequence>
+      <xs:attribute name="frame" use="required" type="xs:NCName"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tgroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="colspec"/>
+        <xs:element ref="tbody"/>
+      </xs:sequence>
+      <xs:attribute name="cols" use="required" type="xs:integer"/>
+      <xs:attribute name="colsep" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="colspec">
+    <xs:complexType>
+      <xs:attribute name="colname" use="required" type="xs:NCName"/>
+      <xs:attribute name="colnum" use="required" type="xs:integer"/>
+      <xs:attribute name="colwidth" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tbody">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="row"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="row">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="entry"/>
+      </xs:sequence>
+      <xs:attribute name="rowsep" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="entry">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="emphasis"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="emphasis">
+    <xs:complexType mixed="true">
+      <xs:attribute name="emphasisType" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="para">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="emphasis"/>
+        <xs:element ref="randomList"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="randomList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="listItem"/>
+      </xs:sequence>
+      <xs:attribute name="listItemPrefix" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="para"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+Create an XSL stylesheet for the templates and page-sequence of the above XML document, with the following additional conditions:
+
+1) include for xsl stylesheet "Script_2_attributes.xsl"
+2) header and footer extents are 0.25in
+3) region-body margin-top and margin-bottom are 0.25in
+4) all templates except description, emphasis, table/row/entry, and randomList/listItem wrap template output in fo:block tags
+5) emphasis template wraps template output in fo:inline tags
+6) emphasis has the following attributes on fo:block: bolded font, Helvetica, font size="11pt">
+7) for emphasis with emphasisType "em01" the font style is italic and with emphasisType "em02" the font color is blue
+8) listItem template will be for listItemPrefix="pf07" and will be an fo:list-block with margin-bottom of 6pt, label indent of 5mm, body indent of 10mm, and bullets for the label
+9) para element uses attribute-set "para"
+10) titles with one levelledPara ancestor use attribute-set "title-1"
+11) titles with two levelledPara ancestors use attribute-set "title-2"
+12) caption element uses attribute-set "caption"
+13) table elements must be kept intact within a page and have space before of 0.5pc
+14) simple page master uses attribute sets page-size and page-geometry
+15) levelledPara has an id attribute on its fo:block that takes the value of the id attribute in the XML-->
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    exclude-result-prefixes="xs" version="2.0">
+	<xsl:import href="Script_2_attributes.xsl"/>
+	<xsl:output method="xml" indent="yes"/>
+	<xsl:strip-space elements="*"/>
+	<xsl:template match="xs:schema">
+		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+			<fo:layout-master-set>
+				<fo:simple-page-master master-name="simple" margin-top="0.25in" margin-bottom="0.25in">
+					<xsl:apply-templates select="xs:attribute-set[@name='page-size']"/>
+					<xsl:apply-templates select="xs:attribute-set[@name='page-geometry']"/>
+					<fo:region-body margin-top="0.25in" margin-bottom="0.25in"/>
+				</fo:simple-page-master>
+			</fo:layout-master-set>
+			<fo:page-sequence master-reference="simple">
+				<fo:flow flow-name="xsl-region-body">
+					<xsl:apply-templates select="xs:element"/>
+				</fo:flow>
+			</fo:page-sequence>
+		</fo:root>  
+		</xsl:template>
+	<xsl:template match="xs:attribute-set[@name='page-size']">
+		    <fo:region-before extent="0.25in"/>
+		<fo:region-after extent="0.25in"/>
+		</xsl:template>
+	<xsl:template match="xs:attribute-set[@name='page-geometry']">
+		<fo:region-body margin-left="0.25in" margin-right="0.25in"/>
+		</xsl:template>
+	<xsl:template match="xs:element[@name='description']">
+		    <fo:block>
+			<xsl:apply-templates/>
+		</fo:block>
+		</xsl:template>
+	<xsl:template match="xs:element[@name='emphasis']">
+		    <fo:inline font-weight="bold" font-family="Helvetica" font-size="11pt">
+			<xsl:apply-templates/>
+		</fo:inline>
+		</xsl:template>
+	<xsl:template match="xs:element[@name='table']">
+		    <fo:block space-before="0.5pc">
+			<xsl:apply-templates/>
+				</fo:block>
+		</xsl:template>
+	<xsl:template match="xs:element[@name='row']">
+		    <fo:block>
+			<xsl:apply-templates/>
+				</fo:block>
+		</xsl:template>
+	<xsl:template match="xs:element[@name='entry']">
+		    <fo:block>
+			<xsl:apply-templates/>
+				</fo:block>
+		</xsl:template>
+	<xsl:template match="xs:element[@name='para']">
+		    <fo:block>
+			<xsl:apply-templates/>
+				</fo:block>
+		</xsl:template>
+	<xsl:template match="xs:element[@name='randomList']">
+		    <fo:block>
+			<xsl:apply-templates/>
+				</fo:block>
+		</xsl:template>
+	<xsl:template match="xs:element[@name='listItem']">
+		    <fo:list-block margin-bottom="6pt" label-indent="5mm" body-indent="10mm">
+			<fo:list-item-label>
+				<fo:block>
+					<fo:marker marker-class-name="bullet"/>
+				</fo:block>
+			</fo:list-item-label>
+			<fo:list-item-body>
+				<fo:block>
+					<xsl:apply-templates/>
+				</fo:block>
+			</fo:list-item-body>
+				</fo:list-block>
+		</xsl:template>
+	<xsl:template match="xs:element[@name='levelledPara']">
+		    <fo:block id="{@id}">
+			<xsl:apply-templates/>
+				</fo:block>
+		</xsl:template>
+	<xsl:template match="xs:element[@name='title']">
+		    <fo:block>
+			<xsl:apply-templates/>
+				</fo:block>
+		</xsl:template>
+	<xsl:template match="xs:element[@name='caption']">
+		    <fo:block>
+			<xsl:apply-templates/>
+				</fo:block>
+		</xsl:template> 
+	</xsl:stylesheet>
