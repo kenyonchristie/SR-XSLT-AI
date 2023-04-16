@@ -36,6 +36,8 @@ My project endeavors to test 4 different AI code assistants against XML/XSLT cod
 
 ### Results will be measured against the following criteria:
 >
+>- Are multiple prompts required to get desired response from the AI assistant?
+>
 >- Is the generated XML document well-formed?
 >
 >- Is it schema compliant?
