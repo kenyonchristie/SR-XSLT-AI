@@ -1,121 +1,65 @@
 <content>
   <description>
-    <levelledPara id="lp-0001">
-      <para>MISSION OVERVIEW</para>
-    </levelledPara>
-    <levelledPara id="lp-0002">
-      <para>The twin Voyager spacecraft, over the course of a dozen years, drew back the curtain on nearly half of the solar system. From launch in 1977 through the spectacular parting shots of Neptune at the outer reaches of the solar system in 1989, this pair of spacecraft explored four planets -- Jupiter, Saturn, Uranus and Neptune -- as well as dozens of moons, and the rings andmagnetic environments of those planetary systems.</para>
-    </levelledPara>
-    <levelledPara id="lp-0003">
-      <para>The Voyagers were designed to take advantage of a rare geometric arrangement of the outer planets that occurs only once every 176 years. This configuration allows a single spacecraft to swing by all four gas giants without the need for large onboard propulsion systems; the flyby of each planet both accelerates the spacecraft and bends its flight path. Without these gravity assists, the flight time to Neptune would have been 30 years.</para>
-    </levelledPara>
-    <levelledPara id="lp-0004">
-      <para>The second of the two Voyager spacecraft, Voyager 2, was launched first, on 20 August 1977. It was followed on 5 September 1977 by Voyager 1, which was put on a faster, shorter trajectory to Jupiter. Both launches took place from the CapeCanaveral Air Force Station in Florida.</para>
-    </levelledPara>
-    <levelledPara id="lp-0005">
-      <para>Eighteen months after launch, Voyager 1 reached Jupiter, 650 million kilometers away. The spacecraft made its closest approach on 5 March 1979, while Voyager 2 followed on 9 July of the same year. Images streamed back from the pair of spacecraft showing the complex, swirling turbulence of Jupiter's atmosphere in exquisite detail. A giant storm, three times the size of Earth, raged in Jupiter's upper atmosphere,surrounded by rippling currents that rotated about it.</para>
-    </levelledPara>
-    <levelledPara id="lp-0006">
-      <para>Voyager 1 found nine active volcanoes erupting on Io, the innermost of Jupiter's four major moons. Four months later, Voyager 2 found that eight of the nine volcanoes were still active. A thin, dusty ring was also discovered around Jupiter, forcing revision of theories about origins and mechanics of planetary ring systems.</para>
-    </levelledPara>
-    <levelledPara id="lp-0007">
-      <para>MISSION PHASES</para>
-    </levelledPara>
-    <levelledPara id="lp-0008">
-      <para>VOYAGER 1 LAUNCH</para>
-      <levelledPara id="lp-0009">
-        <para>The launch vehicle for Voyager 1 was a Titan/Centaur. The first stage Titan was powered by both solid and liquid fuel engines. The Centaur stage, 20 meters long and 3 meters in diameter burned a fuel combination of liquid hydrogen and liquid oxygen. The Titan boosted the Voyager Centaur combination into low Earth orbit, and the Centaur plus a small solid fuel rocket provided the energy for Voyager 1 to escape Earth orbit.</para>
-        <randomList listItemPrefix="pf07">
-          <listItem>Spacecraft Id : VG1</listItem>
-          <listItem>Mission Phase Start Time : 1977-09-05</listItem>
-          <listItem>Mission Phase Stop Time : 1977-09-05</listItem>
-          <listItem>Spacecraft Operations Type : LAUNCH</listItem>
-        </randomList>
-      </levelledPara>
-      <levelledPara id="lp-0010">
-        <para>VOYAGER 1 EARTH-JUPITER CRUISE</para>
-        <levelledPara id="lp-0011">
-          <para>During the period between Launch and Jupiter Encounter, Voyager 1 probed the interplanetary medium and conducted tests and calibrations of its systems.</para>
-          <randomList listItemPrefix="pf07">
-            <listItem>Spacecraft Id : VG1</listItem>
-            <listItem>Mission Phase Start Time : 1977-09-05</listItem>
-            <listItem>Mission Phase Stop Time : 1979-01-06</listItem>
-            <listItem>Spacecraft Operations Type : CRUISE</listItem>
-          </randomList>
-        </levelledPara>
-        <levelledPara id="lp-0012">
-          <para>VOYAGER 1 JUPITER ENCOUNTER</para>
-          <levelledPara id="lp-0013">
-            <para>The Voyager 1 flyby of Jupiter took place on 5 March 1979 at 12:04:36 UTC with the spacecraft closest approach only 348890 kilometers from the center of Jupiter. Among the highlights of the encounter were the discovery of a faint ring and one new satellite. Satellite encounter information is given below; 'UNK' denotes 'unknown' at time of this writing.</para>
-            <sequentialList listItemPrefix="sl01">
-              <listItem>
-                <para>Jupiter Encounter Dates</para>
-                <calsTable id="tbl-0001">
-                  <tableColumns>
-                    <column width="2.5in"/>
-                    <column width="3.5in"/>
-                  </tableColumns>
-                  <tableData>
-                    <rowData>
-                      <entry>
-                        <para>5 March 1979</para>
-                      </entry>
-                      <entry>
-                        <para>Closest Approach Time</para>
-                      </entry>
-                    </rowData>
-                    <rowData>
-                      <entry>
-                        <para>UNK</para>
-                      </entry>
-                      <entry>
-                        <para>Rings Discovered</para>
-                      </entry>
-                    </rowData>
-                    <rowData>
-                      <entry>
-                        <para>1</para>
-                      </entry>
-                      <entry>
-                        <para>New Satellites Discovered</para>
-                      </entry>
-                    </rowData>
-                  </tableData>
-                </calsTable>
-              </listItem>
-              <listItem>
-                <para>Jupiter Encounter Information</para>
-                <randomList listItemPrefix="pf07">
-                  <listItem>Satellite 1 Encounter Information</listItem>
-                  <listItem>Satellite 2 Encounter Information</listItem>
-                  <listItem>Satellite 3 Encounter Information</listItem>
-                  <listItem>Satellite 4 Encounter Information</listItem>
-                  <listItem>Satellite 5 Encounter Information</listItem>
-                  <listItem>Satellite 6 Encounter Information</listItem>
-                  <listItem>Satellite 7 Encounter Information</listItem>
-                  <listItem>Satellite 8 Encounter Information</listItem>
-                  <listItem>Satellite 9 Encounter Information</listItem>
-                  <listItem>Satellite 10 Encounter Information</listItem>
-                  <listItem>Satellite 11 Encounter Information</listItem>
-                  <listItem>Satellite 12 Encounter Information</listItem>
-                  <listItem>Satellite 13 Encounter Information</listItem>
-                  <listItem>Satellite 14 Encounter Information</listItem>
-                  <listItem>Satellite 15 Encounter Information</listItem>
-                  <listItem>Satellite 16 Encounter Information</listItem>
-                </randomList>
-              </listItem>
-              <listItem>
-                <para>Jupiter Encounter References</para>
-                <sequentialList listItemPrefix="sl02">
-                  <listItem>
-                    <para>[STONE&amp;LANE1979A]</para>
-                  </listItem>
-                </sequentialList>
-              </listItem>
-            </sequentialList>
-          </levelledPara>
-        </levelledPara>
-      </levelledPara>
-    </levelledPara>
+    <levelledPara id="lp-0001">MISSION OVERVIEW</levelledPara>
+    <para>
+      The twin Voyager spacecraft, over the course of a dozen years, drew back the curtain on nearly half of the solar system. From launch in 1977 through the spectacular parting shots of Neptune at the outer reaches of the solar system in 1989, this pair of spacecraft explored four planets -- Jupiter, Saturn, Uranus and Neptune -- as well as dozens of moons, and the rings andmagnetic environments of those planetary systems.
+    </para>
+    <para>
+      The Voyagers were designed to take advantage of a rare geometric arrangement of the outer planets that occurs only once every 176 years. This configuration allows a single acecraft to swing by all four gas giants without the need for large onboard propulsion systems; the flyby of each planet both accelerates the spacecraft and bends its flight path. Without these gravity assists, the flight time to Neptune would have been 30 years.
+    </para>
+    <para>
+      The second of the two Voyager spacecraft, Voyager 2, was launched first, on 20 August 1977. It was followed on 5 September 1977 by Voyager 1, which was put on a faster, shorter trajectory to Jupiter. Both launches took place from the CapeCanaveral Air Force Station in Florida.
+    </para>
+    <para>
+      Eighteen months after launch, Voyager 1 reached Jupiter, 650 million kilometers away. The spacecraft made its closest approach on 5 March 1979, while Voyager 2 followed on 9 July of the same year. Images streamed back from the pair of spacecraft showing the complex, swirling turbulence of Jupiter's atmosphere in exquisite detail. A giant storm, three times the size of Earth, raged in Jupiter's upper atmosphere,surrounded by rippling currents that rotated about it.
+    </para>
+    <para>
+      Voyager 1 found nine active volcanoes erupting on Io, the innermost of Jupiter's four major moons. Four months later, Voyager 2 found that eight of the nine volcanoes were still active. A thin, dusty ring was also discovered around Jupiter, forcing revision of theories about origins and mechanics ofplanetary ring systems.
+    </para>
+    <levelledPara id="lp-0002">MISSION PHASES</levelledPara>
+    <levelledPara id="lp-0003">VOYAGER 1 LAUNCH</levelledPara>
+    <para>
+      The launch vehicle for Voyager 1 was a Titan/Centaur. The first stage Titan was powered by both solid and liquid fuel engines. The Centaur stage, 20 meters long and 3 meters in diameter burned a fuel combination of liquid hydrogen and liquid oxygen. The Titan boosted the Voyager Centaur combination into low Earth orbit, and the Centaur plus a small solid fuel rocket provided the energy for Voyager 1 toescape Earth orbit.
+    </para>
+    <randomList listItemPrefix="pf07">
+      <listItem>Spacecraft Id : VG1</listItem>
+      <listItem>Mission Phase Start Time : 1977-09-05</listItem>
+      <listItem>Mission Phase Stop Time : 1977-09-05</listItem>
+      <listItem>Spacecraft Operations Type : LAUNCH</listItem>
+    </randomList>
+    <levelledPara id="lp-0004">VOYAGER 1 EARTH-JUPITER CRUISE</levelledPara>
+    <para>
+      During the period between Launch and Jupiter Encounter, Voyager 1 probed the interplanetary medium and conductedtests and calibrations of its systems.
+    </para>
+    <randomList listItemPrefix="pf07">
+      <listItem>Spacecraft Id : VG1</listItem>
+      <listItem>Mission Phase Start Time : 1977-09-05</listItem>
+      <listItem>Mission Phase Stop Time : 1979-01-06</listItem>
+      <listItem>Spacecraft Operations Type : CRUISE</listItem>
+    </randomList>
+    <levelledPara id="lp-0005">VOYAGER 1 JUPITER ENCOUNTER</levelledPara>
+    <para>
+      The Voyager 1 flyby of Jupiter took place on 5 March 1979 at 12:04:36 UTC with the spacecraft closest approach only 348890 kilometers from the center of Jupiter. Among the highlights of the encounter were the discovery of a faint ring and one new satellite. Satellite encounter information is given below; 'UNK' denotes 'unknown' at time of this writing. The Voyager 1 Jupiter encounter is described in more detail by(STONE&amp;LANE1979A).
+    </para>
+    <sequentialList>
+      <listItem>
+        <para>Spacecraft Id : VG1</para>
+        <para>Mission Phase Start Time : 1979-01-06</para>
+        <para>Mission Phase Stop Time : 1979-03-13</para>
+        <para>Spacecraft Operations Type : Jupiter Encounter</para>
+      </listItem>
+      <listItem>
+        <para>Spacecraft Id : VG1</para>
+        <para>Mission Phase Start Time : 1979-03-13</para>
+        <para>Mission Phase Stop Time : 1979-03-14</para>
+        <para>Spacecraft Operations Type : Io Encounter</para>
+      </listItem>
+      <listItem>
+        <para>Spacecraft Id : VG1</para>
+        <para>Mission Phase Start Time : 1979-03-14</para>
+        <para>Mission Phase Stop Time : 1979-08-25</para>
+        <para>Spacecraft Operations Type : Jupiter Encounter Extension</para>
+      </listItem>
+    </sequentialList>
   </description>
 </content>
