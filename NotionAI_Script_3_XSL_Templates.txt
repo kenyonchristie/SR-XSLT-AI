@@ -1,161 +1,114 @@
-Sorry, I am not able to perform this task as it is beyond the scope of inserting text into a Notion document. It requires writing an XSL stylesheet, which is a complex task that involves transforming XML documents into a different format, such as PDF or HTML. I suggest seeking the help of a professional or consulting online resources for further assistance.
+<xsl:stylesheet xmlns:xsl="<http://www.w3.org/1999/XSL/Transform>" xmlns:fo="<http://www.w3.org/1999/XSL/Format>" version="1.0">
+  <xsl:include href="Script_3_attributes.xsl"/>
 
-<!--researcher selected Continue Writing-->
+  <xsl:template match="/">
+    <fo:root>
+      <fo:layout-master-set>
+        <fo:simple-page-master master-name="simpleA" page-height="11in" page-width="8.5in" margin-top="0.25in" margin-bottom="0.25in" margin-left="0.25in" margin-right="0.25in">
+          <fo:region-body margin-bottom="0.25in" margin-top="0.25in"/>
+          <xsl:attribute-set name="page-size">
+            <xsl:attribute name="page-height">11in</xsl:attribute>
+            <xsl:attribute name="page-width">8.5in</xsl:attribute>
+          </xsl:attribute-set>
+          <xsl:attribute-set name="page-geometry">
+            <xsl:attribute name="margin-top">1in</xsl:attribute>
+            <xsl:attribute name="margin-bottom">1in</xsl:attribute>
+            <xsl:attribute name="margin-left">0.75in</xsl:attribute>
+            <xsl:attribute name="margin-right">0.75in</xsl:attribute>
+          </xsl:attribute-set>
+        </fo:simple-page-master>
+      </fo:layout-master-set>
+      <fo:page-sequence master-name="simpleA">
+        <fo:static-content flow-name="xsl-region-before">
+          <fo:block font-size="10pt" font-family="Arial, sans-serif" text-align="center">
+            Notion Document
+          </fo:block>
+        </fo:static-content>
+        <fo:flow flow-name="xsl-region-body">
+          <fo:block font-size="18pt" font-family="Arial, sans-serif" font-weight="bold" space-after="1.5pc" keep-with-next="always" border-top="1pt solid gray" border-bottom="1pt solid gray" background-color="navy" color="white" text-align="center" xsl:use-attribute-sets="title">
+            <xsl:value-of select="//levelledPara/title"/>
+          </fo:block>
+          <xsl:apply-templates select="//para"/>
+        </fo:flow>
+        <fo:static-content flow-name="xsl-region-after">
+          <fo:block font-size="10pt" font-family="Arial, sans-serif" text-align="center">
+            Page <fo:page-number/> of <fo:page-number-citation ref-id="last-page"/>
+          </fo:block>
+        </fo:static-content>
+      </fo:page-sequence>
+    </fo:root>
+  </xsl:template>
 
-Result: It broke each element of the prompt into blocks, with the actual code for each. Steps and code below:
-
-1. Create a new XSL stylesheet and include the "Script_3_attributes.xsl" script at the beginning of the file.
-<xsl:include href="Script_3_attributes.xsl"/>
-
-1. Set the header and footer extents to 0.25in using the "region-body" attribute-set.
-
-<xsl:attribute-set name="region-body">
-  <xsl:attribute name="margin-top">0.25in</xsl:attribute>
-  <xsl:attribute name="margin-bottom">0.25in</xsl:attribute>
-</xsl:attribute-set>
-
-1. Wrap all templates except "description" and "listItem" in an "fo:block" tag.
-
-<xsl:template match="content">
-  <fo:block xsl:use-attribute-sets="content">
-    <xsl:apply-templates/>
-  </fo:block>
-</xsl:template>
-
-<xsl:template match="description">
-  <xsl:apply-templates/>
-</xsl:template>
-
-<xsl:template match="levelledPara">
-  <fo:block xsl:use-attribute-sets="levelledPara">
-    <fo:block xsl:use-attribute-sets="title">
-      <xsl:value-of select="title"/>
-    </fo:block>
-    <xsl:apply-templates select="para"/>
-  </fo:block>
-</xsl:template>
-
-<xsl:template match="para">
-  <fo:block xsl:use-attribute-sets="para">
-    <xsl:choose>
-      <xsl:when test="sequentialList">
+  <xsl:template match="para">
+    <fo:block font-size="14pt" font-family="Century Gothic, sans-serif" text-align="justify" space-before="1pc" space-after="0.25pc" xsl:use-attribute-sets="para">
+      <xsl:apply-templates select="node()"/>
+      <xsl:if test="sequentialList">
         <xsl:attribute name="space-after">1pc</xsl:attribute>
-      </xsl:when>
-    </xsl:choose>
-    <xsl:apply-templates/>
-  </fo:block>
-</xsl:template>
-
-<xsl:template match="sequentialList">
-  <fo:block xsl:use-attribute-sets="sequentialList">
-    <xsl:apply-templates/>
-  </fo:block>
-</xsl:template>
-
-<xsl:template match="listItem">
-  <fo:list-block xsl:use-attribute-sets="listItem"
-                 space-after="6pt"
-                 provisional-distance-between-starts="5mm"
-                 provisional-label-separation="3mm">
-    <xsl:apply-templates/>
-  </fo:list-block>
-</xsl:template>
-
-1. Set the "listItem" template to use an "fo:list-block" with the specified margin-bottom, label and body indent, and numbered labels that restart for each "sequentialList" parent.
-
-<xsl:template match="listItem">
-  <fo:list-block xsl:use-attribute-sets="listItem"
-                 space-after="6pt"
-                 provisional-distance-between-starts="5mm"
-                 provisional-label-separation="3mm">
-    <xsl:attribute name="start-indent">10mm</xsl:attribute>
-    <xsl:attribute name="end-indent">0mm</xsl:attribute>
-    <xsl:attribute name="border-style">solid</xsl:attribute>
-    <xsl:attribute name="border-width">1pt</xsl:attribute>
-    <xsl:attribute name="border-color">#000000</xsl:attribute>
-    <xsl:attribute name="background-color">#C5C5C5</xsl:attribute>
-    <xsl:attribute name="padding-right">0.15in</xsl:attribute>
-    <xsl:attribute name="color">decimal</xsl:attribute>
-    <xsl:attribute name="number-type">1</xsl:attribute>
-    <xsl:attribute name="numbered">true</xsl:attribute>
-    <xsl:apply-templates/>
-  </fo:list-block>
-</xsl:template>
-
-
-1. Set the "para" element to use the "para" attribute-set and have a space-after of 1pc whenever it has a "sequentialList" child.
-
-<xsl:attribute-set name="para">
-  <xsl:attribute name="font-family">Century Gothic</xsl:attribute>
-  <xsl:attribute name="font-size">14pt</xsl:attribute>
-  <xsl:attribute name="text-align">justify</xsl:attribute>
-  <xsl:attribute name="space-after">0pt</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:template match="para">
-  <fo:block xsl:use-attribute-sets="para">
-    <xsl:choose>
-      <xsl:when test="sequentialList">
-        <xsl:attribute name="space-after">1pc</xsl:attribute>
-      </xsl:when>
-    </xsl:choose>
-    <xsl:apply-templates/>
-  </fo:block>
-</xsl:template>
-
-
-1. Set the "title" element to use the "title" attribute-set.
-
-<xsl:attribute-set name="title">
-  <xsl:attribute name="font-family">Arial</xsl:attribute>
-  <xsl:attribute name="font-weight">bold</xsl:attribute>
-  <xsl:attribute name="font-size">18pt</xsl:attribute>
-  <xsl:attribute name="space-after">1.5pc</xsl:attribute>
-  <xsl:attribute name="keep-with-next">always</xsl:attribute>
-  <xsl:attribute name="border-top">1pt solid gray</xsl:attribute>
-  <xsl:attribute name="border-bottom">1pt solid gray</xsl:attribute>
-  <xsl:attribute name="background-color">navy</xsl:attribute>
-  <xsl:attribute name="color">white</xsl:attribute>
-  <xsl:attribute name="text-align">center</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:template match="title">
-  <fo:block xsl:use-attribute-sets="title">
-    <xsl:apply-templates/>
-  </fo:block>
-</xsl:template>
-
-1. Set the "sequentialList" blocks to have a space-before of 1pc.
-
-<xsl:attribute-set name="sequentialList">
-  <xsl:attribute name="space-before">1pc</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:template match="sequentialList">
-  <fo:block xsl:use-attribute-sets="sequentialList">
-    <xsl:apply-templates/>
-  </fo:block>
-</xsl:template>
-
-1. Set the "levelledPara" element to generate a unique-id.
-
-<xsl:template match="levelledPara">
-  <fo:block xsl:use-attribute-sets="levelledPara">
-    <xsl:attribute name="id">
-      <xsl:value-of select="generate-id(.)"/>
-    </xsl:attribute>
-    <fo:block xsl:use-attribute-sets="title">
-      <xsl:value-of select="title"/>
+      </xsl:if>
     </fo:block>
-    <xsl:apply-templates select="para"/>
-  </fo:block>
-</xsl:template>
+  </xsl:template>
 
+  <xsl:template match="listItem">
+    <fo:list-block margin-bottom="6pt" provisional-distance-between-starts="5mm" provisional-label-separation="10mm" xsl:use-attribute-sets="list-item" start="1">
+      <xsl:attribute name="id">
+        <xsl:value-of select="generate-id()"/>
+      </xsl:attribute>
+      <xsl:attribute-set name="list-item">
+        <xsl:attribute name="space-before">1pc</xsl:attribute>
+      </xsl:attribute-set>
+      <fo:list-item-label end-indent="label-end()">
+        <fo:block background-color="#C5C5C5" padding-right="0.15in" border-right="1pt solid black">
+          <xsl:number level="any" count="listItem" format="1"/>
+        </fo:block>
+      </fo:list-item-label>
+      <fo:list-item-body start-indent="body-start()">
+        <xsl:apply-templates select="para"/>
+      </fo:list-item-body>
+    </fo:list-block>
+  </xsl:template>
 
-1. Finally, set the "simple-page-master" template to use the "page-size" and "page-geometry" attribute-sets.
+  <xsl:template match="sequentialList">
+    <fo:block space-before="1pc">
+      <xsl:apply-templates select="listItem"/>
+    </fo:block>
+  </xsl:template>
 
-<xsl:template match="fo:simple-page-master">
-  <fo:simple-page-master xsl:use-attribute-sets="region-body page-size page-geometry">
-    <xsl:apply-templates/>
-  </fo:simple-page-master>
-</xsl:template>
+  <xsl:template match="levelledPara">
+    <fo:block id="{generate-id()}" xsl:use-attribute-sets="levelledPara">
+      <xsl:apply-templates select="title"/>
+      <xsl:apply-templates select="para"/>
+    </fo:block>
+  </xsl:template>
+
+  <xsl:attribute-set name="title">
+    <xsl:attribute name="font-size">18pt</xsl:attribute>
+    <xsl:attribute name="font-family">Arial, sans-serif</xsl:attribute>
+    <xsl:attribute name="font-weight">bold</xsl:attribute>
+    <xsl:attribute name="space-after">1.5pc</xsl:attribute>
+    <xsl:attribute name="keep-with-next">always</xsl:attribute>
+    <xsl:attribute name="border-top">1pt solid gray</xsl:attribute>
+    <xsl:attribute name="border-bottom">1pt solid gray</xsl:attribute>
+    <xsl:attribute name="background-color">navy</xsl:attribute>
+    <xsl:attribute name="color">white</xsl:attribute>
+    <xsl:attribute name="text-align">center</xsl:attribute>
+  </xsl:attribute-set>
+
+  <xsl:attribute-set name="para">
+    <xsl:attribute name="font-size">14pt</xsl:attribute>
+    <xsl:attribute name="font-family">Century Gothic, sans-serif</xsl:attribute>
+    <xsl:attribute name="text-align">justify</xsl:attribute>
+    <xsl:attribute name="space-before">1pc</xsl:attribute>
+    <xsl:attribute name="space-after">0.25pc</xsl:attribute>
+  </xsl:attribute-set>
+
+  <xsl:attribute-set name="list-item">
+    <xsl:attribute name="margin-bottom">6pt</xsl:attribute>
+    <xsl:attribute name="provisional-distance-between-starts">5mm</xsl:attribute>
+    <xsl:attribute name="provisional-label-separation">10mm</xsl:attribute>
+    <xsl:attribute name="start">1</xsl:attribute>
+  </xsl:attribute-set>
+
+  <xsl:attribute-set name="levelledPara">
+    <xsl:attribute name="id">{generate-id()}</xsl:attribute>
+  </xsl:attribute-set>
+</xsl:stylesheet>
