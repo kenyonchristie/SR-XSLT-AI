@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="Script_2.xsd">
+    <description>
+        <levelledPara id="lp-0001">
+            <!--DEVELOPER INTERVENTION TO RESTORE DROPPED CONTENT: TITLES, FIGURES, CAPTION; ALSO REMOVED EXCESS LEVELLEDPARA ENTRIES AND FIXED NESTING-->
+            <title>CASSINI MISSION</title>
+            <figure id="fig-0001">
+                <graphic id="gra-0001" infoEntityIdent="cassini_image.jpg"/>
+            </figure>
+            <caption>
+                <captionLine>This still is from a short computer-animated film that highlights
+                    Cassini's accomplishments at Saturn and reveals the science-packed final
+                    orbits.</captionLine>
+            </caption>
+            <levelledPara id="lp-0002">
+                <title>OVERVIEW</title>
+                <!--DEVELOPER INTERVENTION TO REMOVE MULTIPLE DUPLICATED CONTENT-->
+                <para>The team made a major effort to summarize the mission. <emphasis
+                        emphasisType="em01">Volume 1 contains the science component:</emphasis>
+                    <emphasis emphasisType="em02">Mission Overview, Science Objectives and
+                        Results</emphasis> while technical information is contained in additional
+                    volumes archived at the Jet Propulsion Lab.</para>
+                <para><emphasis emphasisType="em01">Look for data in a variety of
+                    ways:</emphasis></para>
+                <!--DEV INTERVENTION ADD PARA PARENT TAG TO RANDOMLIST AND PARA CHILDREN TO LISTITEMS (ALL OCCURRENCES)-->
+                <para>
+                    <randomList listItemPrefix="pf07">
+                        <listItem>
+                            <para>By mission science area below</para>
+                        </listItem>
+                        <listItem>
+                            <para>By instrument below, or start with the <emphasis
+                                    emphasisType="em01">Instrument Comparison</emphasis></para>
+                        </listItem>
+                        <listItem>
+                            <para>If you know what you are looking for, use the <emphasis
+                                    emphasisType="em01">Commonly Used Resources and Tools</emphasis>
+                                list <emphasis emphasisType="em02">An Explanation of Cassini
+                                    C-Kernels</emphasis></para>
+                        </listItem>
+                        <listItem>
+                            <para>To help interpret data, use the <emphasis emphasisType="em01"
+                                    >Spacecraft Events and Configuration Information</emphasis> page
+                                to find sources of noise and other ancillary information</para>
+                        </listItem>
+                    </randomList>
+                </para>
+            </levelledPara>
+            <levelledPara id="lp-0005">
+                <title>MISSION SCIENCE AREAS</title>
+                <!--DEVELOPER INTERVENTION FOR MASSIVE REFACTORING OF CALS-TABLE & REMOVAL OF EXTRANEOUS CONTENT-->
+                <table id="tbl-0001" frame="none">
+                    <tgroup cols="2" colsep="0">
+                        <colspec colnum="1" colname="col1" colwidth="3.5in"/>
+                        <colspec colnum="2" colname="col2" colwidth="3.5in"/>
+                        <tbody>
+                            <row rowsep="0">
+                                <entry><emphasis emphasisType="em01">Saturn Planet and
+                                        Atmosphere</emphasis></entry>
+                                <entry>Science includes Saturn's formation and evolution, interior
+                                    fundamentals, atmospheric properties, global circulation and
+                                    dynamics, auroral observations, ionosphere and
+                                    magneticfields.</entry>
+                            </row>
+                            <row rowsep="0">
+                                <entry><emphasis emphasisType="em01">Saturn's
+                                    Rings</emphasis></entry>
+                                <entry>Science includes the configuration and process responsible
+                                    for ring structure, composition, relationships with satellites,
+                                    and interactions with Saturn's magnetosphere, ionosphere and
+                                    atmosphere.</entry>
+                            </row>
+                            <row rowsep="0">
+                                <entry><emphasis emphasisType="em01"
+                                    >Magnetospheric</emphasis></entry>
+                                <entry>Science includes the configuration of Saturn's magnetic
+                                    field, distribution of charged particles in the magnetosphere,
+                                    Saturn's aurorae, and Titan's interaction with the
+                                    magnetospheric plasma.</entry>
+                            </row>
+                            <row rowsep="0">
+                                <entry><emphasis emphasisType="em01">Icy Satellites, Enceladus, and
+                                        Other Moons</emphasis></entry>
+                                <entry>Science includes the study of Enceladus, other icy satellites
+                                    such as Dione, small moons such as Phoebe, and the ring-moon
+                                    relationships.</entry>
+                            </row>
+                            <row rowsep="0">
+                                <entry><emphasis emphasisType="em01">Jupiter</emphasis></entry>
+                                <entry>Science includes atmosphere, rings and moons data collected
+                                    during the Cassini flyby of Jupiter.</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </levelledPara>
+        </levelledPara>
+    </description>
+</content>

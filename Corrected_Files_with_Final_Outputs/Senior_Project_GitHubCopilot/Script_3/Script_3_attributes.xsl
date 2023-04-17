@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<Create an XSL stylesheet that contains the following attribute sets:
+
+page-size 
+page-geometry
+title
+para
+
+The attribute sets contain attributes to accomplish the following:
+page-size:  8.5in x 11in
+page-geometry: 1in top and bottom margins, 0.75in right and left margins
+
+font-family values are Century Gothic for para and Arial for title
+font-weight is bold for title
+font-size is 14pt for para, 18pt for title
+space-before is 1pc for para
+space-after is 1.5pc for title
+text-align is justify for para, center for title
+title has keep-with-next value of always
+title has gray top and bottom borders that are 1pt solid with navy background color and white font-->
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    exclude-result-prefixes="xs" version="2.0">
+    <xsl:output method="xml" indent="yes" encoding="utf-8"/>
+    
+    <!--DEV INTERVENTION REMOVE 4 UNNECESSARY/INVALID TEMPLATES-->
+    
+    <xsl:attribute-set name="page-size">
+        <xsl:attribute name="page-height">11in</xsl:attribute>
+        <xsl:attribute name="page-width">8.5in</xsl:attribute>
+    </xsl:attribute-set>
+    
+    <xsl:attribute-set name="page-geometry">
+        <xsl:attribute name="margin-top">1in</xsl:attribute>
+        <xsl:attribute name="margin-bottom">1in</xsl:attribute>
+        <xsl:attribute name="margin-left">0.75in</xsl:attribute>
+        <xsl:attribute name="margin-right">0.75in</xsl:attribute>
+    </xsl:attribute-set>
+    
+    <!--DEV INTERVENTION FIX REVERSAL OF BORDER COLOR AND BACKGROUND COLOR-->
+    <xsl:attribute-set name="title">
+        <xsl:attribute name="font-family">Arial</xsl:attribute>
+        <xsl:attribute name="font-weight">bold</xsl:attribute>
+        <xsl:attribute name="font-size">18pt</xsl:attribute>
+        <xsl:attribute name="space-after">1.5pc</xsl:attribute>
+        <xsl:attribute name="text-align">center</xsl:attribute>
+        <xsl:attribute name="keep-with-next">always</xsl:attribute>
+        <xsl:attribute name="border-top-color">gray</xsl:attribute>
+        <xsl:attribute name="border-top-style">solid</xsl:attribute>
+        <xsl:attribute name="border-top-width">1pt</xsl:attribute>
+        <xsl:attribute name="border-bottom-color">gray</xsl:attribute>
+        <xsl:attribute name="border-bottom-style">solid</xsl:attribute>
+        <xsl:attribute name="border-bottom-width">1pt</xsl:attribute>
+        <xsl:attribute name="background-color">navy</xsl:attribute>
+        <xsl:attribute name="color">white</xsl:attribute>
+    </xsl:attribute-set>
+    
+    <xsl:attribute-set name="para">
+        <xsl:attribute name="font-family">Century Gothic</xsl:attribute>
+        <xsl:attribute name="font-size">14pt</xsl:attribute>
+        <xsl:attribute name="space-before">1pc</xsl:attribute>
+        <xsl:attribute name="text-align">justify</xsl:attribute>
+    </xsl:attribute-set>
+</xsl:stylesheet>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Rules:
+
+1. The root element is content
+2. The second level element wrapping all of below data is description
+2. Items starting with > are titles and the > character is not included in the xml output
+3. Every title block is wrapped in a levelledPara element with a unique id attribute that begins with 'lp-' and ends with sequential numbering starting with 0001
+4. Every paragraph indented under a title is a para element that is a child of the same levelledPara as its corresponding title
+5. Items beginning with * are randomList elements with listItemPrefix attribute value of "pf07" and the * character is not included in the xml output
+6. Items enclosed with + are emphasis elements with emphasisType attribute value of "em01" and the + character is not included in the xml output
+7. Items enclosed with ^ are emphasis elements with emphasisType attribute value of "em02" and the ^ character is not included in the xml output
+8. Data enclosed in [] is a two-column cals-table with no borders, and each block enclosed in {} represents a column. Column one is 3.5in wide and column two is 3.5in wide. Neighter [] nor {} characters are included in the xml output
+9. Table elements have a unique id attribute that begins with 'tbl-' and ends with sequential numbering starting with 0001
+10. Items preceded by # are sequentialList elements and the # character is not included in the xml output
+Using the above rules, please convert the following text to valid xml data:
+
+	>CASSINI MISSION
+	file: cassini_image.jpg
+	caption: This still is from a short computer-animated film that highlights Cassini's accomplishments at Saturn and reveals the science-packed final orbits.
+		
+		>OVERVIEW
+
+		The team made a major effort to summarize the mission. +Volume 1 contains the science component:+ ^Mission Overview, Science Objectives and Results^ while technical information is contained in additional volumes archived at the Jet Propulsion Lab.
+		
+		Mission Science Highlights and Science Objectives Assessment provides a brief overview of the mission
+
+		+Look for data in a variety of ways:+
+		*By mission science area below
+		*By instrument below, or start with the +Instrument Comparison+
+		*If you know what you are looking for, use the +Commonly Used Resources and Tools+ list +An Explanation of Cassini C-Kernels+
+		*To help interpret data, use the +Spacecraft Events and Configuration Information+ page to find sources of noise and other ancillary information
+
+		>MISSION SCIENCE AREAS
+		[
+		{
+		+Saturn Planet and Atmosphere+
+		+Saturn's Rings+
+		+Magnetospheric+
+		+Icy Satellites, Enceladus, and Other Moons+
+		+Jupiter
+		}
+
+		{
+		Science includes Saturn's formation and evolution, interior fundamentals, atmospheric properties, global circulation and dynamics, auroral observations, ionosphere and magneticfields.
+            Science includes the configuration and process responsible for ring structure, composition, relationships with satellites, and interactions with Saturn's magnetosphere, ionosphere and atmosphere.
+		Science includes the configuration of Saturn's magnetic field, distribution of charged particles in the magnetosphere, Saturn's aurorae, and Titan's interaction with the magnetospheric plasma.
+		Science includes the study of Enceladus, other icy satellites such as Dione, small moons such as Phoebe, and the ring-moon relationships.
+		Science includes atmosphere, rings and moons data collected during the Cassini flyby of Jupiter.
+		}
+		]-->
+<content xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="Script_2.xsd">
+    <description>
+        <levelledPara id="lp-0001">
+            <!--id was manual, but from here to next "manual" comment was github suggestion; DEV INTERVENTION TO CORRECT GRAPHIC/CAPTION ENTRIES-->
+            <title>CASSINI MISSION</title>
+            <figure id="fig-0001">
+                <graphic id="gra-0001" infoEntityIdent="cassini_image.jpg"/>
+            </figure>
+            <caption>
+                <captionLine>This still is from a short computer-animated film that highlights
+                    Cassini's accomplishments at Saturn and reveals the science-packed final
+                    orbits.</captionLine>
+            </caption>
+            <levelledPara id="lp-0002">
+                <title>OVERVIEW</title>
+                <para> The team made a major effort to summarize the mission. <emphasis
+                        emphasisType="em01">Volume 1 contains the science component:</emphasis>
+                    <emphasis emphasisType="em02">Mission Overview, Science Objectives and
+                        Results</emphasis> while technical information is contained in additional
+                    volumes archived at the Jet Propulsion Lab. </para>
+                <para>Mission Science Highlights and Science Objectives Assessment provides a brief
+                    overview of the mission</para>
+                <para>
+                    <emphasis emphasisType="em01">Look for data in a variety of ways:</emphasis>
+                </para>
+                <para>
+                    <randomList listItemPrefix="pf07">
+                        <!--DEV INTERVENTION TO ADD PARA PARENT FOR ALL RANDOMLIST ENTRIES AND PARA CHILDREN FOR ALL LISTITEM ENTRIES-->
+                        <listItem>
+                            <para>By mission science area below</para>
+                        </listItem>
+                        <listItem>
+                            <para>By instrument below, or start with the <emphasis
+                                    emphasisType="em01">Instrument Comparison</emphasis></para>
+                        </listItem>
+                        <listItem>
+                            <para>If you know what you are looking for, use the <emphasis
+                                    emphasisType="em01">Commonly Used Resources and Tools</emphasis>
+                                list <emphasis emphasisType="em01">An Explanation of Cassini
+                                    C-Kernels</emphasis></para>
+                        </listItem>
+                        <listItem>
+                            <para>To help interpret data, use the <emphasis emphasisType="em01"
+                                    >Spacecraft Events and Configuration Information</emphasis> page
+                                to find sources of noise and other ancillary information</para>
+                        </listItem>
+                    </randomList>
+                </para>
+            </levelledPara>
+            <levelledPara id="lp-0003">
+                <title>MISSION SCIENCE AREAS</title>
+                <table id="tbl-0001" frame="none">
+                    <!--DEV INTERVENTION TO CORRECT CALS TABLE ENTRY, MULTIPLE CORRECTIONS-->
+                    <tgroup cols="2" colsep="0">
+                        <colspec colnum="1" colname="col1" colwidth="3.5in"/>
+                        <colspec colnum="2" colname="col2" colwidth="3.5in"/>
+                        <tbody>
+                            <row rowsep="0">
+                                <entry><emphasis emphasisType="em01">Saturn Planet and
+                                        Atmosphere</emphasis></entry>
+                                <entry>Science includes Saturn's formation and evolution, interior
+                                    fundamentals, atmospheric properties, global circulation and
+                                    dynamics, auroral observations, ionosphere and magnetic
+                                    fields.</entry>
+                            </row>
+                            <row rowsep="0">
+                                <entry><emphasis emphasisType="em01">Saturn's
+                                    Rings</emphasis></entry>
+                                <entry>Science includes the configuration and process responsible
+                                    for ring structure, composition, relationships with satellites,
+                                    and interactions with Saturn's magnetosphere, ionosphere and
+                                    atmosphere.</entry>
+                            </row>
+                            <row rowsep="0">
+                                <entry><emphasis emphasisType="em01"
+                                    >Magnetospheric</emphasis></entry>
+                                <entry>Science includes the configuration of Saturn's magnetic
+                                    field, distribution of charged particles in the magnetosphere,
+                                    Saturn's aurorae, and Titan's interaction with the
+                                    magnetospheric plasma.</entry>
+                            </row>
+                            <row rowsep="0">
+                                <entry><emphasis emphasisType="em01">Icy Satellites, Enceladus, and
+                                        Other Moons</emphasis></entry>
+                                <entry>Science includes the study of Enceladus, other icy satellites
+                                    such as Dione, small moons such as Phoebe, and the ring-moon
+                                    relationships.</entry>
+                            </row>
+                            <row rowsep="0">
+                                <entry><emphasis emphasisType="em01">Jupiter</emphasis></entry>
+                                <entry>Science includes atmosphere, rings and moons data collected
+                                    during the Cassini flyby of Jupiter.</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+                <!--manual rest of the way-->
+            </levelledPara>
+        </levelledPara>
+    </description>
+</content>
