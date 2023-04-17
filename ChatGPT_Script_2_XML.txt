@@ -19,7 +19,7 @@
                 </randomList>
                 <levelledPara id="lp-0003">
                     <title>MISSION SCIENCE AREAS</title>
-                    <cals-table id="tbl-0001" col1="2.5in" col2="3.5in">
+                    <cals-table id="tbl-0001" col1="3.5in" col2="3.5in">
                         <row>
                             <entry>
                                 <emphasis emphasisType="em01">Saturn Planet and Atmosphere</emphasis>
