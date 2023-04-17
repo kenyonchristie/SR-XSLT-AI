@@ -8,7 +8,7 @@ Rules:
 5. Items beginning with * are randomList elements with listItemPrefix attribute value of "pf07" and the * character is not included in the xml output
 6. Items enclosed with + are emphasis elements with emphasisType attribute value of "em01" and the + character is not included in the xml output
 7. Items enclosed with ^ are emphasis elements with emphasisType attribute value of "em02" and the ^ character is not included in the xml output
-8. Data enclosed in [] is a two-column cals-table with no borders, and each block enclosed in {} represents a column. Column one is 2.5in wide and column two is 3.5in wide. Neighter [] nor {} characters are included in the xml output
+8. Data enclosed in [] is a two-column cals-table with no borders, and each block enclosed in {} represents a column. Column one is 3.5in wide and column two is 3.5in wide. Neighter [] nor {} characters are included in the xml output
 9. Table elements have a unique id attribute that begins with 'tbl-' and ends with sequential numbering starting with 0001
 10. Items preceded by # are sequentialList elements and the # character is not included in the xml output
 Using the above rules, please convert the following text to valid xml data:
@@ -48,4 +48,3 @@ Using the above rules, please convert the following text to valid xml data:
 		}
 		]
                           
-
